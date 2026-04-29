@@ -18,7 +18,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Tenor+Sans&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -37,7 +37,9 @@
     --beige-soft: #d4bd9e;
     --line: rgba(232, 212, 184, 0.14);
     --line-strong: rgba(232, 212, 184, 0.28);
-    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --display: 'Italiana', 'Cormorant Garamond', 'Times New Roman', serif;
+    --label: 'Tenor Sans', 'Inter', system-ui, sans-serif;
+    --serif-it: 'Cormorant Garamond', 'Times New Roman', serif;
     --sans: 'Inter', system-ui, -apple-system, sans-serif;
 
     --safe-top: env(safe-area-inset-top, 0px);
@@ -123,14 +125,13 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
-    font-family: var(--serif);
-    font-style: italic;
+    font-family: var(--label);
     font-weight: 400;
-    font-size: 12px;
-    letter-spacing: 0.36em;
+    font-size: 11px;
+    letter-spacing: 0.42em;
     color: var(--beige-warm);
     text-transform: uppercase;
-    padding-left: 0.36em;
+    padding-left: 0.42em;
     text-shadow: 0 2px 12px rgba(0,0,0,0.4);
     opacity: 0;
     animation: fadeIn 0.9s 0.2s ease-out forwards;
@@ -186,21 +187,22 @@
 
   /* Headline */
   .headline {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(22px, 6vw, 26px);
-    line-height: 1.4;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(17px, 4.4vw, 20px);
+    line-height: 1.55;
     color: var(--beige-warm);
-    max-width: 380px;
-    letter-spacing: 0.005em;
+    max-width: 280px;
+    letter-spacing: 0.04em;
     padding: 0 4px;
+    text-align: center;
+    margin: 0 auto;
     opacity: 0;
     animation: fadeUp 1s 0.4s ease-out forwards;
   }
 
   .headline em {
-    font-style: italic;
+    font-style: normal;
     color: var(--gold);
     font-weight: 400;
   }
@@ -244,10 +246,12 @@
 
   .link-btn {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 16px;
+    justify-content: center;
+    gap: 6px;
     min-height: 78px;
-    padding: 14px 18px;
+    padding: 16px 20px;
     background:
       linear-gradient(135deg,
         rgba(184, 128, 74, 0.16) 0%,
@@ -263,13 +267,20 @@
       box-shadow 0.35s ease;
     position: relative;
     overflow: hidden;
-    text-align: left;
+    text-align: center;
     box-shadow:
       inset 0 1px 0 rgba(232, 212, 184, 0.08),
       0 4px 20px -8px rgba(0, 0, 0, 0.6);
     opacity: 0;
     transform: translateY(18px);
     animation: fadeUp 0.9s ease-out forwards;
+  }
+
+  .btn-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
 
   .link-btn:nth-of-type(1) { animation-delay: 0.85s; }
@@ -307,19 +318,17 @@
 
   .icon-wrap {
     flex-shrink: 0;
-    width: 42px;
-    height: 42px;
+    width: 22px;
+    height: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--gold);
-    position: relative;
-    z-index: 1;
   }
 
   .icon-wrap svg {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     stroke: currentColor;
     fill: none;
     stroke-width: 1.4;
@@ -327,34 +336,29 @@
     stroke-linejoin: round;
   }
 
-  .link-content {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    min-width: 0;
-  }
-
   .link-title {
     display: block;
-    font-family: var(--sans);
-    font-weight: 500;
+    font-family: var(--label);
+    font-weight: 400;
     font-size: 13px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--beige-warm);
     line-height: 1.2;
+    padding-left: 0.22em;
   }
 
   .link-desc {
     display: block;
-    font-family: var(--serif);
+    font-family: var(--serif-it);
     font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: 300;
+    font-size: 13.5px;
     color: var(--beige-soft);
-    margin-top: 5px;
-    line-height: 1.38;
-    letter-spacing: 0.005em;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    max-width: 280px;
+    margin: 0 auto;
   }
 
   /* Final CTA — destaque */
@@ -367,8 +371,9 @@
     border-color: rgba(212, 163, 115, 0.5);
   }
 
+  .final-cta { min-height: 60px; padding: 18px 20px; }
   .final-cta .icon-wrap { color: var(--beige-warm); }
-  .final-cta .link-title { color: var(--beige-warm); letter-spacing: 0.18em; }
+  .final-cta .link-title { color: var(--beige-warm); letter-spacing: 0.22em; }
   .final-cta .link-desc { display: none; }
 
   /* WhatsApp footer bar */
@@ -380,6 +385,7 @@
     border-radius: 12px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     width: 100%;
     color: var(--beige-soft);
@@ -409,15 +415,17 @@
   }
 
   .wa-bar .wa-text {
-    font-family: var(--sans);
-    font-size: 12.5px;
-    letter-spacing: 0.06em;
+    font-family: var(--label);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--beige-soft);
+    padding-left: 0.18em;
   }
 
   .wa-bar .wa-text strong {
     color: var(--beige-warm);
-    font-weight: 500;
+    font-weight: 400;
   }
 
   /* Footer */
@@ -438,10 +446,12 @@
     gap: 9px;
     color: var(--beige-soft);
     text-decoration: none;
-    font-size: 12.5px;
-    letter-spacing: 0.18em;
+    font-family: var(--label);
+    font-size: 12px;
+    letter-spacing: 0.22em;
     transition: color 0.3s ease;
     padding: 6px 4px;
+    padding-left: 0.22em;
   }
 
   .insta-link:active { color: var(--gold); }
@@ -458,12 +468,11 @@
   }
 
   .signature {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 12px;
+    font-family: var(--display);
+    font-size: 14px;
     color: var(--beige-soft);
-    opacity: 0.55;
-    letter-spacing: 0.02em;
+    opacity: 0.6;
+    letter-spacing: 0.06em;
   }
 
   /* Animations */
@@ -481,7 +490,7 @@
   @media (min-width: 520px) {
     .hero { height: 80vh; max-height: 880px; margin-bottom: -24vh; }
     .content { padding: 0 28px calc(var(--safe-bottom) + 48px); }
-    .link-btn { min-height: 84px; padding: 16px 20px; }
+    .link-btn { min-height: 84px; padding: 18px 22px; }
   }
 
   /* Phones pequenos */
@@ -489,11 +498,11 @@
     .hero { height: 72vh; min-height: 480px; margin-bottom: -20vh; }
     .content { padding: 0 18px calc(var(--safe-bottom) + 32px); }
     .links { gap: 10px; }
-    .link-btn { min-height: 72px; padding: 12px 16px; gap: 12px; }
-    .link-title { font-size: 12px; letter-spacing: 0.14em; }
-    .link-desc { font-size: 13px; margin-top: 4px; }
-    .icon-wrap { width: 38px; height: 38px; }
-    .icon-wrap svg { width: 22px; height: 22px; }
+    .link-btn { min-height: 72px; padding: 14px 16px; gap: 4px; }
+    .link-title { font-size: 12px; letter-spacing: 0.18em; }
+    .link-desc { font-size: 12.5px; }
+    .icon-wrap, .icon-wrap svg { width: 20px; height: 20px; }
+    .headline { max-width: 240px; }
   }
 
   /* Reduced motion */
@@ -529,45 +538,45 @@
 
       <!-- Consultoria Prime - Coroa -->
       <a class="link-btn" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly%20e%20tenho%20interesse%20na%20Consultoria%20Prime." target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M3 8 L7 14 L12 6 L17 14 L21 8 L20 18 H4 L3 8 Z"/><circle cx="3" cy="7" r="1.2" fill="currentColor"/><circle cx="12" cy="5" r="1.2" fill="currentColor"/><circle cx="21" cy="7" r="1.2" fill="currentColor"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
-        </span>
-        <span class="link-content">
+        <div class="btn-head">
+          <span class="icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 8 L7 14 L12 6 L17 14 L21 8 L20 18 H4 L3 8 Z"/><circle cx="3" cy="7" r="1.2" fill="currentColor"/><circle cx="12" cy="5" r="1.2" fill="currentColor"/><circle cx="21" cy="7" r="1.2" fill="currentColor"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
+          </span>
           <span class="link-title">Consultoria Prime</span>
-          <span class="link-desc">Estratégia de imagem completa — do diagnóstico ao guarda-roupa transformado.</span>
-        </span>
+        </div>
+        <span class="link-desc">Estratégia de imagem completa — do diagnóstico ao guarda-roupa transformado.</span>
       </a>
 
       <!-- Dossiê de Imagem - Documento -->
       <a class="link-btn" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly%20e%20tenho%20interesse%20no%20Dossi%C3%AA%20de%20Imagem." target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 Z"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15.5" x2="15" y2="15.5"/><line x1="9" y1="19" x2="13" y2="19"/></svg>
-        </span>
-        <span class="link-content">
+        <div class="btn-head">
+          <span class="icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 Z"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15.5" x2="15" y2="15.5"/><line x1="9" y1="19" x2="13" y2="19"/></svg>
+          </span>
           <span class="link-title">Dossiê de Imagem</span>
-          <span class="link-desc">Sua identidade visual mapeada e entregue em um guia completo e personalizado.</span>
-        </span>
+        </div>
+        <span class="link-desc">Sua identidade visual mapeada e entregue em um guia completo e personalizado.</span>
       </a>
 
       <!-- Imagem para Ocasiões - Cabide -->
       <a class="link-btn" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly%20e%20tenho%20interesse%20em%20Imagem%20para%20Ocasi%C3%B5es." target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 9.5 V11"/><circle cx="12" cy="7.5" r="2"/><path d="M12 11 L3 18 a1 1 0 0 0 0.6 1.8 H20.4 a1 1 0 0 0 0.6 -1.8 L12 11 Z"/></svg>
-        </span>
-        <span class="link-content">
+        <div class="btn-head">
+          <span class="icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 9.5 V11"/><circle cx="12" cy="7.5" r="2"/><path d="M12 11 L3 18 a1 1 0 0 0 0.6 1.8 H20.4 a1 1 0 0 0 0.6 -1.8 L12 11 Z"/></svg>
+          </span>
           <span class="link-title">Imagem para Ocasiões</span>
-          <span class="link-desc">Para o momento que pede que você chegue e seja notada.</span>
-        </span>
+        </div>
+        <span class="link-desc">Para o momento que pede que você chegue e seja notada.</span>
       </a>
 
       <!-- Final CTA - Balão -->
       <a class="link-btn final-cta" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly%20e%20ainda%20n%C3%A3o%20sei%20qual%20servi%C3%A7o%20%C3%A9%20o%20ideal%20para%20mim.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener">
-        <span class="icon-wrap" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M21 12 a8 8 0 0 1 -11.7 7.1 L4 20 l1 -4.6 A8 8 0 1 1 21 12 Z"/><circle cx="9" cy="12" r="0.8" fill="currentColor"/><circle cx="13" cy="12" r="0.8" fill="currentColor"/><circle cx="17" cy="12" r="0.8" fill="currentColor"/></svg>
-        </span>
-        <span class="link-content">
+        <div class="btn-head">
+          <span class="icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 12 a8 8 0 0 1 -11.7 7.1 L4 20 l1 -4.6 A8 8 0 1 1 21 12 Z"/><circle cx="9" cy="12" r="0.8" fill="currentColor"/><circle cx="13" cy="12" r="0.8" fill="currentColor"/><circle cx="17" cy="12" r="0.8" fill="currentColor"/></svg>
+          </span>
           <span class="link-title">Quero entender qual serviço é para mim</span>
-        </span>
+        </div>
       </a>
 
     </nav>
