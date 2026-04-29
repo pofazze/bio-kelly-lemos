@@ -189,22 +189,34 @@
   .headline {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(17px, 4.4vw, 20px);
-    line-height: 1.55;
-    color: var(--beige-warm);
-    max-width: 280px;
-    letter-spacing: 0.04em;
-    padding: 0 4px;
+    max-width: 300px;
     text-align: center;
     margin: 0 auto;
     opacity: 0;
     animation: fadeUp 1s 0.4s ease-out forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .headline em {
-    font-style: normal;
+  .headline-main {
+    display: block;
+    font-size: clamp(20px, 5.4vw, 24px);
+    line-height: 1.25;
     color: var(--gold);
-    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  .headline-sub {
+    display: block;
+    font-family: var(--serif-it);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(14px, 3.8vw, 16px);
+    line-height: 1.45;
+    color: var(--beige-soft);
+    letter-spacing: 0.01em;
+    opacity: 0.78;
   }
 
   /* Decorative diamond divider */
@@ -246,12 +258,12 @@
 
   .link-btn {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    min-height: 78px;
-    padding: 16px 20px;
+    gap: 12px;
+    min-height: 64px;
+    padding: 16px 22px;
     background:
       linear-gradient(135deg,
         rgba(184, 128, 74, 0.16) 0%,
@@ -274,13 +286,6 @@
     opacity: 0;
     transform: translateY(18px);
     animation: fadeUp 0.9s ease-out forwards;
-  }
-
-  .btn-head {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
   }
 
   .link-btn:nth-of-type(1) { animation-delay: 0.85s; }
@@ -348,85 +353,17 @@
     padding-left: 0.22em;
   }
 
-  .link-desc {
-    display: block;
-    font-family: var(--serif-it);
-    font-style: italic;
-    font-weight: 300;
-    font-size: 13.5px;
-    color: var(--beige-soft);
-    line-height: 1.4;
-    letter-spacing: 0.01em;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-
   /* Final CTA — destaque */
   .final-cta {
-    margin-top: 4px;
+    margin-top: 6px;
     background:
       linear-gradient(135deg,
-        rgba(200, 146, 99, 0.22) 0%,
-        rgba(184, 128, 74, 0.32) 100%);
+        rgba(200, 146, 99, 0.24) 0%,
+        rgba(184, 128, 74, 0.34) 100%);
     border-color: rgba(212, 163, 115, 0.5);
   }
-
-  .final-cta { min-height: 60px; padding: 18px 20px; }
   .final-cta .icon-wrap { color: var(--beige-warm); }
   .final-cta .link-title { color: var(--beige-warm); letter-spacing: 0.22em; }
-  .final-cta .link-desc { display: none; }
-
-  /* WhatsApp footer bar */
-  .wa-bar {
-    margin-top: 26px;
-    padding: 16px 18px;
-    background: rgba(20, 16, 12, 0.6);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-    color: var(--beige-soft);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    opacity: 0;
-    animation: fadeUp 0.9s 1.2s ease-out forwards;
-  }
-
-  .wa-bar:active {
-    background: rgba(28, 22, 17, 0.8);
-    border-color: var(--line-strong);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .wa-bar:hover {
-      background: rgba(28, 22, 17, 0.8);
-      border-color: var(--line-strong);
-    }
-  }
-
-  .wa-bar .wa-icon {
-    width: 22px;
-    height: 22px;
-    fill: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .wa-bar .wa-text {
-    font-family: var(--label);
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--beige-soft);
-    padding-left: 0.18em;
-  }
-
-  .wa-bar .wa-text strong {
-    color: var(--beige-warm);
-    font-weight: 400;
-  }
 
   /* Footer */
   .footer {
@@ -498,11 +435,10 @@
     .hero { height: 72vh; min-height: 480px; margin-bottom: -20vh; }
     .content { padding: 0 18px calc(var(--safe-bottom) + 32px); }
     .links { gap: 10px; }
-    .link-btn { min-height: 72px; padding: 14px 16px; gap: 4px; }
+    .link-btn { min-height: 60px; padding: 14px 18px; gap: 10px; }
     .link-title { font-size: 12px; letter-spacing: 0.18em; }
-    .link-desc { font-size: 12.5px; }
     .icon-wrap, .icon-wrap svg { width: 20px; height: 20px; }
-    .headline { max-width: 240px; }
+    .headline { max-width: 260px; }
   }
 
   /* Reduced motion */
@@ -525,7 +461,8 @@
   <main class="content">
 
     <h1 class="headline">
-      Ensino mulheres a <em>ocupar espaço</em> — com o corpo, com a roupa, com a presença que ninguém esquece.
+      <span class="headline-main">Ensino mulheres a ocupar espaço</span>
+      <span class="headline-sub">com o corpo, com a roupa, com a presença que ninguém esquece.</span>
     </h1>
 
     <div class="ornament" aria-hidden="true">
@@ -538,55 +475,37 @@
 
       <!-- Consultoria Prime - Coroa -->
       <a class="link-btn" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly%20e%20tenho%20interesse%20na%20Consultoria%20Prime." target="_blank" rel="noopener">
-        <div class="btn-head">
-          <span class="icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 8 L7 14 L12 6 L17 14 L21 8 L20 18 H4 L3 8 Z"/><circle cx="3" cy="7" r="1.2" fill="currentColor"/><circle cx="12" cy="5" r="1.2" fill="currentColor"/><circle cx="21" cy="7" r="1.2" fill="currentColor"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
-          </span>
-          <span class="link-title">Consultoria Prime</span>
-        </div>
-        <span class="link-desc">Estratégia de imagem completa — do diagnóstico ao guarda-roupa transformado.</span>
+        <span class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 8 L7 14 L12 6 L17 14 L21 8 L20 18 H4 L3 8 Z"/><circle cx="3" cy="7" r="1.2" fill="currentColor"/><circle cx="12" cy="5" r="1.2" fill="currentColor"/><circle cx="21" cy="7" r="1.2" fill="currentColor"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
+        </span>
+        <span class="link-title">Consultoria Prime</span>
       </a>
 
       <!-- Dossiê de Imagem - Documento -->
       <a class="link-btn" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly%20e%20tenho%20interesse%20no%20Dossi%C3%AA%20de%20Imagem." target="_blank" rel="noopener">
-        <div class="btn-head">
-          <span class="icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 Z"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15.5" x2="15" y2="15.5"/><line x1="9" y1="19" x2="13" y2="19"/></svg>
-          </span>
-          <span class="link-title">Dossiê de Imagem</span>
-        </div>
-        <span class="link-desc">Sua identidade visual mapeada e entregue em um guia completo e personalizado.</span>
+        <span class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14 3 H7 a2 2 0 0 0 -2 2 v14 a2 2 0 0 0 2 2 h10 a2 2 0 0 0 2 -2 V8 Z"/><polyline points="14 3 14 8 19 8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15.5" x2="15" y2="15.5"/><line x1="9" y1="19" x2="13" y2="19"/></svg>
+        </span>
+        <span class="link-title">Dossiê de Imagem</span>
       </a>
 
       <!-- Imagem para Ocasiões - Cabide -->
       <a class="link-btn" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly%20e%20tenho%20interesse%20em%20Imagem%20para%20Ocasi%C3%B5es." target="_blank" rel="noopener">
-        <div class="btn-head">
-          <span class="icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 9.5 V11"/><circle cx="12" cy="7.5" r="2"/><path d="M12 11 L3 18 a1 1 0 0 0 0.6 1.8 H20.4 a1 1 0 0 0 0.6 -1.8 L12 11 Z"/></svg>
-          </span>
-          <span class="link-title">Imagem para Ocasiões</span>
-        </div>
-        <span class="link-desc">Para o momento que pede que você chegue e seja notada.</span>
+        <span class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 9.5 V11"/><circle cx="12" cy="7.5" r="2"/><path d="M12 11 L3 18 a1 1 0 0 0 0.6 1.8 H20.4 a1 1 0 0 0 0.6 -1.8 L12 11 Z"/></svg>
+        </span>
+        <span class="link-title">Imagem para Ocasiões</span>
       </a>
 
       <!-- Final CTA - Balão -->
       <a class="link-btn final-cta" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly%20e%20ainda%20n%C3%A3o%20sei%20qual%20servi%C3%A7o%20%C3%A9%20o%20ideal%20para%20mim.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener">
-        <div class="btn-head">
-          <span class="icon-wrap" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M21 12 a8 8 0 0 1 -11.7 7.1 L4 20 l1 -4.6 A8 8 0 1 1 21 12 Z"/><circle cx="9" cy="12" r="0.8" fill="currentColor"/><circle cx="13" cy="12" r="0.8" fill="currentColor"/><circle cx="17" cy="12" r="0.8" fill="currentColor"/></svg>
-          </span>
-          <span class="link-title">Quero entender qual serviço é para mim</span>
-        </div>
+        <span class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M21 12 a8 8 0 0 1 -11.7 7.1 L4 20 l1 -4.6 A8 8 0 1 1 21 12 Z"/><circle cx="9" cy="12" r="0.8" fill="currentColor"/><circle cx="13" cy="12" r="0.8" fill="currentColor"/><circle cx="17" cy="12" r="0.8" fill="currentColor"/></svg>
+        </span>
+        <span class="link-title">Quero entender qual serviço é para mim</span>
       </a>
 
     </nav>
-
-    <a class="wa-bar" href="https://wa.me/5583986007586?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Kelly." target="_blank" rel="noopener">
-      <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/>
-      </svg>
-      <span class="wa-text">WhatsApp Business: <strong>83 98600-7586</strong></span>
-    </a>
 
     <footer class="footer">
       <a class="insta-link" href="https://instagram.com/kelyllemos" target="_blank" rel="noopener">
